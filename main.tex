@@ -1,0 +1,95 @@
+\documentclass[10pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[labelfont=bf]{caption}
+\usepackage[labelfont=bf]{subcaption}
+\usepackage[width=7in,height=8.5in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage[shortlabels]{enumitem}
+\usepackage[mathscr]{euscript}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage[hyphens]{url}
+
+\setlength{\headheight}{24pt}
+\setlength{\parindent}{0pt}
+
+\makeatletter
+\renewcommand\@biblabel[1]{#1.}
+\makeatother
+
+\pagestyle{fancy}
+
+\rhead{Chase Austin and Jacob Wiliams \\ \today}
+\chead{}
+\lhead{COSC 3020 Algorithms and Data Structures \\ Assignment 03}
+\rfoot{p. \thepage}
+\cfoot{}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\extrarowheight}{3pt}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\bigO}{\ensuremath{\mathcal{O}}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\definecolor{lightgray}{RGB}{240,240,240}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.8}
+\definecolor{green}{rgb}{0,0.8,0.1}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, 
+  var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{green}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+\lstset{
+    escapeinside={(*@}{@*)},          % if you want to add LaTeX within your code
+}
+
+\begin{document}
+
+\section{The memoized Held-Karp algorithm}
+
+\section{The stochastic 2-opt local search}
+
+\section{Empirical comparison}
+
+\end{document}
