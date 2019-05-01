@@ -173,7 +173,23 @@ function heldKarp(graph,unvisited,start) {
 \subsection{Empirical time complexity}
 We investigated the empirical time complexity on Chase's home computer,
 running a sequence of graphs of increasing size. The results, of number
-$n$ of vertices against runtime, were plotted in Excel.
+$n$ of vertices against runtime, were plotted in Excel, along with the
+least-squares trendline plotted. Note that only graphs with 7--10 
+vertices are plotted, because smaller graphs took less than 1 ms to run
+(showing up as 0 on our timer) and the 11-vertex graph took more time than
+we allotted.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=4in]{heldKarp_trendline.png}
+    \caption{The empirical runtime for the Held-Karp algorithm.}
+    \label{fig:my_label}
+\end{figure}
+
+Given the empirical runtime trendline shown, we would expect a graph on 11
+vertices to take approximately $(2.96 \cdot 10^{-13})e^{(4.19 \times 11)} =
+30,755,612$ milliseconds, or about 8.5 hours. This is well above the one-
+hour threshold.
 
 
 \subsection{Worst-case asymptotic complexity}
@@ -315,6 +331,17 @@ We investigated the empirical time complexity on Chase's home computer,
 running a sequence of graphs of increasing size. The results, of number
 $n$ of vertices against runtime, were plotted in Excel.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=4in]{2Opt_trendline.png}
+    \caption{The empirical runtime for the 2-opt graph}
+    \label{fig:my_label}
+\end{figure}
+
+The cubic curve fits the plot very well, and the longest runtime is 4,371,957 ms,
+or about 1.21 hours.
+
+
 \subsection{Worst-case asymptotic complexity}
 First, consider the helper functions. The \verb|shuffle()| function runs in time
 linear in the input size; namely, the entire initial tour, which has length $n$
@@ -345,5 +372,48 @@ above. \medskip
 
 
 \section{Empirical comparison}
+We plot the empirical runtimes for both algorithms together. Although the 10-
+vertex graph finishes much more quickly on Held-Karp than the 1500-vertex
+graph on the 2-opt algorithm, we predict that the 11-vertex graph will take
+much longer.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=4in]{bothGraphed.png}
+    \caption{The empirical runtimes plotted together.}
+    \label{fig:my_label}
+\end{figure}
+
+We also record the true shortest path (from Held-Karp) and the estimated
+shortest path (from 2-opt).
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        Number of vertices & True shortest tour & Approximate shortest tour \\
+        \midrule
+        0 &	0 &	0 \\
+        1 &	0 &	0 \\
+        2 &	6 &	6 \\
+        3 &	5 &	5 \\
+        4 &	14& 14 \\
+        5 &	16&	16 \\
+        6 &	17&	17 \\
+        7 &	21&	21 \\
+        8 &	19&	19 \\
+        9 &	19&	20 \\
+        10&	17&	19 \\
+        \bottomrule
+    \end{tabular}
+    \caption{The shortest paths found.}
+    \label{tab:1}
+\end{table}
+
+Mostly, for these small graphs, the shortest paths found are the same length.
+However, the 2-opt graph finds slightly longer paths for the graphs of size
+9 and 10. This is to be expected, since 2-opt stochastic local search finds
+only an approximate solution to the shortest tour.
+
 
 \end{document}
