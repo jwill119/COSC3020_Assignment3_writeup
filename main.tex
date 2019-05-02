@@ -25,19 +25,17 @@
 \makeatother
 
 \pagestyle{fancy}
-
-\rhead{Chase Austin and Jacob Wiliams \\ \today}
-\chead{}
-\lhead{COSC 3020 Algorithms and Data Structures \\ Assignment 03}
-\rfoot{p. \thepage}
-\cfoot{}
+\rhead{Chase Austin and Jacob Wiliams \\ \today} 
+\chead{} 
+\lhead{COSC 3020 Algorithms and Data Structures \\ Assignment 03} 
+\rfoot{p. \thepage} 
+\cfoot{}  
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
-\setlength{\extrarowheight}{3pt}
-\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\setlength{\extrarowheight}{3pt} 
 
-\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}} \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\bigO}{\ensuremath{\mathcal{O}}}
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
@@ -83,26 +81,26 @@
 \lstset{
     escapeinside={(*@}{@*)},          % if you want to add LaTeX within your code
 }
+ 
+ \begin{document} 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ Submitted by Chase Austin (W09115598) and Jacob Williams (W07648832).
+ 
+ \section{The memoized Held-Karp algorithm} We prepared a memoized Held-Karp
+ algorithm using the top-down dynamic programming approach. This algorithm takes in
+ an undirected, weighted complete graph in the form of an adjacency matrix, as well
+ as a given start vertex. It returns the shortest tour of all vertices in the graph
+ that begin at the start vertex.  
+ 
+ \subsection{The code}
 
-\begin{document}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The memoized Held-Karp algorithm}
-We prepared a memoized Held-Karp algorithm using the top-down dynamic
-programming approach. This algorithm takes in an undirected, weighted complete
-graph in the form of an adjacency matrix, as well as a given start vertex. It
-returns the shortest tour of all vertices in the graph that begin at the start
-vertex.
-
-\subsection{The code}
-\begin{lstlisting}[language=JavaScript]
-///////////////////////////////////////////////////////////////////////////////
-////                    The memoized Held-Karp algorithm                   ////
-///////////////////////////////////////////////////////////////////////////////
-
-// We implement a data structure for storing the visited tours. The first entry
-// stores a Set of edges in the tour; the second stores the cost of the tour.
-function StoreTours(edges,cost) {
+ \begin{lstlisting}[language=JavaScript]
+ ///////////////////////////////////////////////////////////////////////////////
+ ////                    The memoized Held-Karp algorithm                   ////
+ ///////////////////////////////////////////////////////////////////////////////  
+ // We implement a data structure for storing the visited tours. The first entry 
+ // stores a Set of edges in the tour; the second stores the cost of the tour. function StoreTours(edges,cost) {
   this.edges = edges;
   this.cost = cost;
 }
@@ -183,13 +181,15 @@ we allotted.
     \centering
     \includegraphics[width=4in]{heldKarp_trendline.png}
     \caption{The empirical runtime for the Held-Karp algorithm.}
-    \label{fig:my_label}
+    \label{fig:1}
 \end{figure}
 
 Given the empirical runtime trendline shown, we would expect a graph on 11
 vertices to take approximately $(2.96 \cdot 10^{-13})e^{(4.19 \times 11)} =
 30,755,612$ milliseconds, or about 8.5 hours. This is well above the one-
-hour threshold.
+hour threshold. Indeed, our 11-vertex graph failed to complete after 8
+hours (at which point we killed the process), in keeping with this 
+prediction.
 
 
 \subsection{Worst-case asymptotic complexity}
@@ -335,7 +335,7 @@ $n$ of vertices against runtime, were plotted in Excel.
     \centering
     \includegraphics[width=4in]{2Opt_trendline.png}
     \caption{The empirical runtime for the 2-opt graph}
-    \label{fig:my_label}
+    \label{fig:2}
 \end{figure}
 
 The cubic curve fits the plot very well, and the longest runtime is 4,371,957 ms,
@@ -381,7 +381,7 @@ much longer.
     \centering
     \includegraphics[width=4in]{bothGraphed.png}
     \caption{The empirical runtimes plotted together.}
-    \label{fig:my_label}
+    \label{fig:3}
 \end{figure}
 
 We also record the true shortest path (from Held-Karp) and the estimated
